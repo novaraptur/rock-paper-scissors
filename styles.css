@@ -1,4 +1,6 @@
 
+/* Whole Body */
+
 body {
   background-color: #252525;
   color: #FFF;
@@ -11,6 +13,10 @@ main {
   display: flex;
   justify-content: space-between;
   padding: 2%;
+}
+
+p {
+  font-weight: lighter;
 }
 
 /* Header */
@@ -42,9 +48,20 @@ header {
   border-radius: 10px;
 }
 
+.player-select {
+  max-width: 600px;
+}
+
 .player-choice {
+  margin: 20px 30px;
   min-width: 100px;
+  padding: 5px;
   width: 15%;
+}
+
+.player-choice:hover {
+  background-color: #80ffdb;
+  border-radius: 10px;
 }
 
 /* Player Sections */
