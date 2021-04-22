@@ -51,6 +51,24 @@ header {
 
 .player-section {
   padding: 20px;
+  min-width: 90px;
+  width: 10%;
+}
+
+button {
+  background-color: #80ffdb;
+  border: none;
+  border-radius: 10px;
+  box-shadow: none;
+  color: #252525;
+  font-family: "Raleway", sans-serif;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #FFF;
 }
 
 /* Media Queries & Hidden States */
