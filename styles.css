@@ -1,0 +1,66 @@
+
+body {
+  background-color: #252525;
+  color: #FFF;
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  padding: 2%;
+}
+
+/* Header */
+
+header {
+  background-color: #64dfdf;
+  color: #252525;
+  padding: 10px;
+}
+
+/* Gameboard */
+
+.game-section {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.game-option {
+  border: 1px solid #FFF;
+  border-radius: 10px;
+  margin-left: 8%;
+  padding: 0 5px;
+  min-width: 200px;
+}
+
+.game-option:hover {
+  background-color: #6930c3;
+  border-radius: 10px;
+}
+
+.player-choice {
+  min-width: 100px;
+  width: 15%;
+}
+
+/* Player Sections */
+
+.player-section {
+  padding: 20px;
+}
+
+/* Media Queries & Hidden States */
+
+@media only screen and (max-width: 750px) {
+  .game-option {
+    min-width: 90px;
+  }
+}
+
+.hidden {
+  display: none;
+}
