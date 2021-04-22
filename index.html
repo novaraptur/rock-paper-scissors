@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <header>
+      <h1>Rock, Paper, Scissors</h1>
+    </header>
+    <main>
+      <section class="player-section player-one" id="playerOneSection">
+        <h2>Player</h2>
+        <p>Wins: 0</p>
+        <button class="hidden" id="changeGameBtn" type="button">Change Game?</button>
+      </section>
+      <section class="game-section" id="gameBoard">
+        <article class="game-option" id="regularGameCard">
+          <h3>Regular Game</h3>
+          <p>Rock > Scissors</p>
+          <p>Scissors > Paper</p>
+          <p>Paper > Scissors</p>
+        </article>
+        <article class="game-option" id="difficultGameCard">
+          <h3>Difficult Game</h3>
+          <p>Rock > Scissors & Lizard</p>
+          <p>Scissors > Paper & Lizard</p>
+          <p>Paper > Rock & Alien</p>
+          <p>Lizard > Paper & Alien</p>
+          <p>Alien > Scissors & Rock</p>
+        </article>
+        <section class="hidden regular-player-select">
+          <h3>Choose Your Fighter:</h3>
+          <img class="player-choice" id="rock" src="assets/happy-rocks.png" alt="A pair of rocks with smiley faces">
+          <img class="player-choice" id="scissors" src="assets/happy-scissors.png" alt="A pair of red scissors">
+          <img class="player-choice" id="paper" src="assets/happy-paper.png" alt="A piece of paper with a smiley face">
+        </section>
+        <section class="hidden difficult-player-select">
+          <h3>Choose Your Fighter:</h3>
+          <img class="player-choice" id="rock" src="assets/happy-rocks.png" alt="A pair of rocks with smiley faces">
+          <img class="player-choice" id="scissors" src="assets/happy-scissors.png" alt="A pair of red scissors">
+          <img class="player-choice" id="paper" src="assets/happy-paper.png" alt="A piece of paper with a smiley face">
+          <img class="player-choice" id="lizard" src="assets/iguana.png" alt="A green iguana">
+          <img class="player-choice" id="alien" src="assets/ufo.png" alt="A gray alien in a floating UFO">
+        </section>
+      </section>
+      <section class="player-section player-two" id="playerTwoSection">
+        <h2>Computer</h2>
+        <p>Wins: 0</p>
+      </section>
+      <footer>
+        <p>Made by Dean Cook, Apr 2021</p>
+      </footer>
+    </main>
+  </body>
+</html>
