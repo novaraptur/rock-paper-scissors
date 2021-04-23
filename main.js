@@ -20,7 +20,15 @@ regularGameCard.addEventListener("click", function() {
 difficultGameCard.addEventListener("click", function() {
   currentGame.gameType = "Difficult";
   switchView(difficultPlayerSelect);
-})
+});
+
+regularPlayerSelect.addEventListener("click", function(event) {
+  selectPlayerChoice(event);
+});
+
+difficultPlayerSelect.addEventListener("click", function(event) {
+  selectPlayerChoice(event);
+});
 
 changeGameBtn.addEventListener("click", resetGame);
 
@@ -29,6 +37,20 @@ changeGameBtn.addEventListener("click", resetGame);
 function switchView(view) {
   chooseGameDifficulty.classList.add("hidden");
   view.classList.remove("hidden");
+}
+
+function selectPlayerChoice(event) {
+  if (event.target.id === "rock") {
+    alert("rock");
+  } else if (event.target.id === "scissors") {
+    alert("scissors");
+  } else if (event.target.id === "paper") {
+    alert("paper");
+  } else if (event.target.id === "lizard") {
+    alert("lizard");
+  } else if (event.target.id === "alien") {
+    alert("alien");
+  }
 }
 
 function resetGame() {
