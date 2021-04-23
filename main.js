@@ -13,10 +13,12 @@ var regularPlayerSelect = document.querySelector("#regularPlayerSelect");
 // Event Listeners
 
 regularGameCard.addEventListener("click", function() {
+  currentGame.gameType = "Regular";
   switchView(regularPlayerSelect);
 });
 
 difficultGameCard.addEventListener("click", function() {
+  currentGame.gameType = "Difficult";
   switchView(difficultPlayerSelect);
 })
 
