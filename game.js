@@ -32,13 +32,37 @@ class Game {
         this.winner = this.players[1];
       }
     } else if (humanChoice === "Scissors") {
-
+      if (computerChoice === "Paper" || computerChoice === "Lizard") {
+        this.players[0].winGame();
+        this.winner = this.players[0];
+      } else {
+        this.players[1].winGame();
+        this.winner = this.players[1];
+      }
     } else if (humanChoice === "Paper") {
-
+      if (computerChoice === "Rock" || computerChoice === "Alien") {
+        this.players[0].winGame();
+        this.winner = this.players[0];
+      } else {
+        this.players[1].winGame();
+        this.winner = this.players[1];
+      }
     } else if (humanChoice === "Lizard") {
-
+      if (computerChoice === "Paper" || computerChoice === "Alien") {
+        this.players[0].winGame();
+        this.winner = this.players[0];
+      } else {
+        this.players[1].winGame();
+        this.winner = this.players[1];
+      }
     } else if (humanChoice === "Alien") {
-
+      if (computerChoice === "Scissors" || computerChoice === "Rock") {
+        this.players[0].winGame();
+        this.winner = this.players[0];
+      } else {
+        this.players[1].winGame();
+        this.winner = this.players[1];
+      }
     }
   }
 
