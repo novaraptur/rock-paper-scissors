@@ -19,13 +19,13 @@ class Game {
 
   playMatch() {
     var humanChoice = this.players[0].choice;
-    this.compareChoices(humanChoice);
+    var computerChoice = this.players[1].choice;
+    this.compareChoices(humanChoice, computerChoice);
   }
 
-  compareChoices(humanChoice) {
-    var computerChoice = this.players[1].choice;
+  compareChoices(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-      this.winner = "Draw";
+      this.winner = {name: "Draw"};
     } else if (humanChoice === "Rock") {
       if (computerChoice === "Scissors" || computerChoice === "Lizard") {
         this.players[0].winGame();

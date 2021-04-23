@@ -71,7 +71,7 @@ function computerChoice() {
   } else {
     optionNumber = 3;
   }
-  var randomChoice = Math.floor(Math.random() * optionNumber);
+  var randomChoice = Math.floor(Math.random() * optionNumber) + 1;
   if (randomChoice === 1) {
     currentGame.setPlayerChoice(1, "Rock");
   } else if (randomChoice === 2) {
