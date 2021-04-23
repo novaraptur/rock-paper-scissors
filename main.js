@@ -54,7 +54,33 @@ function selectPlayerChoice(event, currentView) {
   } else if (event.target.id === "alien") {
     currentGame.setPlayerChoice(0, "Alien");
   }
+  runGame();
   switchView(mainGame, currentView);
+}
+
+function runGame() {
+  computerChoice();
+}
+
+function computerChoice() {
+  var optionNumber;
+  if (currentGame.gameType === "Difficult") {
+    optionNumber = 5;
+  } else {
+    optionNumber = 3;
+  }
+  var randomChoice = Math.floor(Math.random() * optionNumber);
+  if (randomChoice === 1) {
+    currentGame.setPlayerChoice(1, "Rock");
+  } else if (randomChoice === 2) {
+    currentGame.setPlayerChoice(1, "Scissors");
+  } else if (randomChoice === 3) {
+    currentGame.setPlayerChoice(1, "Paper");
+  } else if (randomChoice === 4) {
+    currentGame.setPlayerChoice(1, "Lizard");
+  } else if (randomChoice === 5) {
+    currentGame.setPlayerChoice(1, "Alien");
+  }
 }
 
 function resetGame() {
