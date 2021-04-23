@@ -68,9 +68,13 @@ class Game {
     }
   }
 
-  //add both human & computer players to the array [x]
-  //get human to take turn [x]
-  //get Computer to take turn [x]
-  //compare the two []
-  //declare winner []
+  decideWinner() {
+    if (this.winner === "Draw") {
+      return "Draw";
+    } else if (this.winner === this.players[0]) {
+      return "Human";
+    } else {
+      return "Computer";
+    }
+  }
 }

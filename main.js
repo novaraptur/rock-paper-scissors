@@ -14,6 +14,7 @@ window.addEventListener("load", function() {
   currentGame.takeTurn(0, "Rock");
   currentGame.takeTurn(1, "Rock");
   currentGame.playMatch();
+  currentGame.decideWinner();
 })
 
 // Functions
