@@ -3,6 +3,7 @@ class Game {
   constructor() {
     this.players = [];
     this.winner = "";
+    this.gameType = "";
   }
 
   addPlayers() {
@@ -76,5 +77,11 @@ class Game {
     } else {
       return "Computer";
     }
+  }
+
+  clearGame() {
+    this.players = [];
+    this.winner = "";
+    this.gameType = "";
   }
 }
