@@ -16,14 +16,16 @@ class Game {
     this.players[player].takeTurn(playerChoice);
   }
 
-  decideWinner() {
+  playMatch() {
     var humanChoice = this.players[0].choice;
     this.compareChoices(humanChoice);
   }
 
   compareChoices(humanChoice) {
     var computerChoice = this.players[1].choice;
-    if (humanChoice === "Rock") {
+    if (humanChoice === computerChoice) {
+      this.winner = "Draw";
+    } else if (humanChoice === "Rock") {
       if (computerChoice === "Scissors" || computerChoice === "Lizard") {
         this.players[0].winGame();
         this.winner = this.players[0];
