@@ -11,9 +11,13 @@ class Game {
     this.players.push(computer);
   }
 
-  //add both human & computer players to the array
-  //get human to take turn
-  //randomly generate option for Computer
-  //compare the two
-  //declare winner
+  takeTurn(player, playerChoice) {
+    this.players[player].takeTurn(playerChoice);
+  }
+
+  //add both human & computer players to the array [x]
+  //get human to take turn [x]
+  //randomly generate option for Computer []
+  //compare the two []
+  //declare winner []
 }
