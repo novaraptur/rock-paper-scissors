@@ -60,6 +60,8 @@ function selectPlayerChoice(event, currentView) {
 
 function runGame() {
   computerChoice();
+  currentGame.playMatch();
+  alert(currentGame.winner.name);
 }
 
 function computerChoice() {
