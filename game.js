@@ -3,6 +3,7 @@ class Game {
   constructor() {
     this.players = [];
     this.winner = "";
+    this.gameType = "";
   }
 
   addPlayers() {
@@ -12,19 +13,19 @@ class Game {
     this.players.push(computer);
   }
 
-  takeTurn(player, playerChoice) {
+  setPlayerChoice(player, playerChoice) {
     this.players[player].takeTurn(playerChoice);
   }
 
   playMatch() {
     var humanChoice = this.players[0].choice;
-    this.compareChoices(humanChoice);
+    var computerChoice = this.players[1].choice;
+    this.compareChoices(humanChoice, computerChoice);
   }
 
-  compareChoices(humanChoice) {
-    var computerChoice = this.players[1].choice;
+  compareChoices(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-      this.winner = "Draw";
+      this.winner = {name: "Draw"};
     } else if (humanChoice === "Rock") {
       if (computerChoice === "Scissors" || computerChoice === "Lizard") {
         this.players[0].winGame();
@@ -76,5 +77,11 @@ class Game {
     } else {
       return "Computer";
     }
+  }
+
+  clearGame() {
+    this.players = [];
+    this.winner = "";
+    this.gameType = "";
   }
 }
