@@ -7,6 +7,7 @@ var changeGameBtn = document.querySelector("#changeGameBtn");
 var chooseGameDifficulty = document.querySelector("#chooseGameDifficulty");
 var difficultGameCard = document.querySelector("#difficultGameCard");
 var difficultPlayerSelect  = document.querySelector("#difficultPlayerSelect");
+var mainGame = document.querySelector("#mainGame");
 var regularGameCard = document.querySelector("#regularGameCard");
 var regularPlayerSelect = document.querySelector("#regularPlayerSelect");
 
@@ -14,43 +15,46 @@ var regularPlayerSelect = document.querySelector("#regularPlayerSelect");
 
 regularGameCard.addEventListener("click", function() {
   currentGame.gameType = "Regular";
-  switchView(regularPlayerSelect);
+  currentGame.addPlayers();
+  switchView(regularPlayerSelect, chooseGameDifficulty);
 });
 
 difficultGameCard.addEventListener("click", function() {
   currentGame.gameType = "Difficult";
-  switchView(difficultPlayerSelect);
+  currentGame.addPlayers();
+  switchView(difficultPlayerSelect, chooseGameDifficulty);
 });
 
 regularPlayerSelect.addEventListener("click", function(event) {
-  selectPlayerChoice(event);
+  selectPlayerChoice(event, regularPlayerSelect);
 });
 
 difficultPlayerSelect.addEventListener("click", function(event) {
-  selectPlayerChoice(event);
+  selectPlayerChoice(event, difficultPlayerSelect);
 });
 
 changeGameBtn.addEventListener("click", resetGame);
 
 // Functions
 
-function switchView(view) {
-  chooseGameDifficulty.classList.add("hidden");
-  view.classList.remove("hidden");
+function switchView(viewTo, viewFrom) {
+  viewFrom.classList.add("hidden");
+  viewTo.classList.remove("hidden");
 }
 
-function selectPlayerChoice(event) {
+function selectPlayerChoice(event, currentView) {
   if (event.target.id === "rock") {
-    alert("rock");
+    currentGame.setPlayerChoice(0, "Rock");
   } else if (event.target.id === "scissors") {
-    alert("scissors");
+    currentGame.setPlayerChoice(0, "Scissors");
   } else if (event.target.id === "paper") {
-    alert("paper");
+    currentGame.setPlayerChoice(0, "Paper");
   } else if (event.target.id === "lizard") {
-    alert("lizard");
+    currentGame.setPlayerChoice(0, "Lizard");
   } else if (event.target.id === "alien") {
-    alert("alien");
+    currentGame.setPlayerChoice(0, "Alien");
   }
+  switchView(mainGame, currentView);
 }
 
 function resetGame() {

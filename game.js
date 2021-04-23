@@ -13,7 +13,7 @@ class Game {
     this.players.push(computer);
   }
 
-  takeTurn(player, playerChoice) {
+  setPlayerChoice(player, playerChoice) {
     this.players[player].takeTurn(playerChoice);
   }
 
