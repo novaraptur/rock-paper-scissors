@@ -11,8 +11,9 @@ var difficultGameCard = document.querySelector("#difficultGameCard");
 
 window.addEventListener("load", function() {
   currentGame.addPlayers();
-  currentGame.takeTurn(0, "Scissors");
-  currentGame.takeTurn(1, "Paper");
+  currentGame.takeTurn(0, "Rock");
+  currentGame.takeTurn(1, "Scissors");
+  currentGame.decideWinner();
 })
 
 // Functions
