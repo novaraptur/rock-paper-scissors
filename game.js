@@ -27,50 +27,30 @@ class Game {
     if (humanChoice === computerChoice) {
       this.winner = {name: "Draw"};
     } else if (humanChoice === "Rock") {
-      if (computerChoice === "Scissors" || computerChoice === "Lizard") {
-        this.players[0].winGame();
-        this.winner = this.players[0];
-      } else {
-        this.players[1].winGame();
-        this.winner = this.players[1];
-      }
+      this.evaluateChoices(computerChoice, "Scissors", "Lizard");
     } else if (humanChoice === "Scissors") {
-      if (computerChoice === "Paper" || computerChoice === "Lizard") {
-        this.players[0].winGame();
-        this.winner = this.players[0];
-      } else {
-        this.players[1].winGame();
-        this.winner = this.players[1];
-      }
+      this.evaluateChoices(computerChoice, "Paper", "Lizard");
     } else if (humanChoice === "Paper") {
-      if (computerChoice === "Rock" || computerChoice === "Alien") {
-        this.players[0].winGame();
-        this.winner = this.players[0];
-      } else {
-        this.players[1].winGame();
-        this.winner = this.players[1];
-      }
+      this.evaluateChoices(computerChoice, "Rock", "Alien");
     } else if (humanChoice === "Lizard") {
-      if (computerChoice === "Paper" || computerChoice === "Alien") {
-        this.players[0].winGame();
-        this.winner = this.players[0];
-      } else {
-        this.players[1].winGame();
-        this.winner = this.players[1];
-      }
+      this.evaluateChoices(computerChoice, "Paper", "Alien");
     } else if (humanChoice === "Alien") {
-      if (computerChoice === "Scissors" || computerChoice === "Rock") {
-        this.players[0].winGame();
-        this.winner = this.players[0];
-      } else {
-        this.players[1].winGame();
-        this.winner = this.players[1];
-      }
+      this.evaluateChoices(computerChoice, "Rock", "Scissors");
+    }
+  }
+
+  evaluateChoices(computerChoice, winCondition1, winCondition2) {
+    if (computerChoice === winCondition1 || computerChoice === winCondition2) {
+      this.players[0].winGame();
+      this.winner = this.players[0];
+    } else {
+      this.players[1].winGame();
+      this.winner = this.players[1];
     }
   }
 
   decideWinner() {
-    if (this.winner === "Draw") {
+    if (this.winner.name === "Draw") {
       return "Draw";
     } else if (this.winner === this.players[0]) {
       return "Human";

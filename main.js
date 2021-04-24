@@ -8,8 +8,12 @@ var chooseGameDifficulty = document.querySelector("#chooseGameDifficulty");
 var difficultGameCard = document.querySelector("#difficultGameCard");
 var difficultPlayerSelect  = document.querySelector("#difficultPlayerSelect");
 var mainGame = document.querySelector("#mainGame");
+var playerOneWins = document.querySelector("#playerOneWins");
+var playerTwoWins = document.querySelector("#playerTwoWins");
 var regularGameCard = document.querySelector("#regularGameCard");
 var regularPlayerSelect = document.querySelector("#regularPlayerSelect");
+var winGameBoard = document.querySelector("#winGameBoard");
+var winMessage = document.querySelector("#winMessage");
 
 // Event Listeners
 
@@ -32,6 +36,8 @@ regularPlayerSelect.addEventListener("click", function(event) {
 difficultPlayerSelect.addEventListener("click", function(event) {
   selectPlayerChoice(event, difficultPlayerSelect);
 });
+
+playAgainBtn.addEventListener("click", startNewGame);
 
 changeGameBtn.addEventListener("click", resetGame);
 
@@ -58,10 +64,24 @@ function selectPlayerChoice(event, currentView) {
   switchView(mainGame, currentView);
 }
 
+function determineGameDifficulty() {
+  var gameDifficulty;
+  if (currentGame.gameType === "Regular") {
+    gameDifficulty = regularPlayerSelect;
+  } else {
+    gameDifficulty = difficultPlayerSelect;
+  }
+  return gameDifficulty;
+}
+
 function runGame() {
   computerChoice();
   currentGame.playMatch();
-  alert(currentGame.winner.name);
+  updateWins();
+  toggleChangeGameBtn();
+  var gameDifficulty = determineGameDifficulty();
+  switchView(winGameBoard, gameDifficulty);
+  displayWinMessage();
 }
 
 function computerChoice() {
@@ -72,6 +92,10 @@ function computerChoice() {
     optionNumber = 3;
   }
   var randomChoice = Math.floor(Math.random() * optionNumber) + 1;
+  evaluateComputerChoice(randomChoice);
+}
+
+function evaluateComputerChoice(randomChoice) {
   if (randomChoice === 1) {
     currentGame.setPlayerChoice(1, "Rock");
   } else if (randomChoice === 2) {
@@ -85,6 +109,36 @@ function computerChoice() {
   }
 }
 
-function resetGame() {
+function toggleChangeGameBtn() {
+  changeGameBtn.classList.toggle("hidden");
+}
 
+function updateWins() {
+  if (currentGame.winner === currentGame.players[0]) {
+    playerOneWins.innerText = `Wins: ${currentGame.players[0].wins}`;
+  } else if (currentGame.winner === currentGame.players[1]) {
+    playerTwoWins.innerText = `Wins: ${currentGame.players[1].wins}`;
+  }
+}
+
+function displayWinMessage() {
+  winMessage.innerHTML = ``;
+  if (currentGame.winner.name === "Draw") {
+    winMessage.insertAdjacentHTML("afterbegin", `
+    <h3>It's a draw!</h3>
+    `);
+  } else {
+    winMessage.insertAdjacentHTML("afterbegin", `
+    <h3>${currentGame.winner.name} wins!</h3>
+    `);
+  }
+}
+
+function startNewGame() {
+  var gameDifficulty = determineGameDifficulty();
+  switchView(gameDifficulty, winGameBoard);
+}
+
+function resetGame() {
+  switchView(chooseGameDifficulty, winGameBoard);
 }
