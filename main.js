@@ -135,10 +135,12 @@ function displayWinMessage() {
 }
 
 function startNewGame() {
+  toggleChangeGameBtn();
   var gameDifficulty = determineGameDifficulty();
   switchView(gameDifficulty, winGameBoard);
 }
 
 function resetGame() {
+  toggleChangeGameBtn();
   switchView(chooseGameDifficulty, winGameBoard);
 }
