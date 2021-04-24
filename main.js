@@ -13,6 +13,7 @@ var playerTwoWins = document.querySelector("#playerTwoWins");
 var regularGameCard = document.querySelector("#regularGameCard");
 var regularPlayerSelect = document.querySelector("#regularPlayerSelect");
 var winGameBoard = document.querySelector("#winGameBoard");
+var winMessage = document.querySelector("#winMessage");
 
 // Event Listeners
 
@@ -63,18 +64,24 @@ function selectPlayerChoice(event, currentView) {
   switchView(mainGame, currentView);
 }
 
-function runGame() {
-  computerChoice();
-  currentGame.playMatch();
-  updateWins();
-  toggleChangeGameBtn();
+function determineGameDifficulty() {
   var gameDifficulty;
   if (currentGame.gameType === "Regular") {
     gameDifficulty = regularPlayerSelect;
   } else {
     gameDifficulty = difficultPlayerSelect;
   }
+  return gameDifficulty;
+}
+
+function runGame() {
+  computerChoice();
+  currentGame.playMatch();
+  updateWins();
+  toggleChangeGameBtn();
+  var gameDifficulty = determineGameDifficulty();
   switchView(winGameBoard, gameDifficulty);
+  displayWinMessage();
   console.log(currentGame.winner.name);
 }
 
@@ -115,13 +122,21 @@ function updateWins() {
   }
 }
 
-function startNewGame() {
-  var gameDifficulty;
-  if (currentGame.gameType === "Regular") {
-    gameDifficulty = regularPlayerSelect;
+function displayWinMessage() {
+  winMessage.innerHTML = ``;
+  if (currentGame.winner.name === "Draw") {
+    winMessage.insertAdjacentHTML("afterbegin", `
+    <p>It's a draw!</p>
+    `);
   } else {
-    gameDifficulty = difficultPlayerSelect;
+    winMessage.insertAdjacentHTML("afterbegin", `
+    <p>${currentGame.winner.name} wins!</p>
+    `);
   }
+}
+
+function startNewGame() {
+  var gameDifficulty = determineGameDifficulty();
   switchView(gameDifficulty, winGameBoard);
 }
 
