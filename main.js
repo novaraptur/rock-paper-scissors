@@ -8,6 +8,8 @@ var chooseGameDifficulty = document.querySelector("#chooseGameDifficulty");
 var difficultGameCard = document.querySelector("#difficultGameCard");
 var difficultPlayerSelect  = document.querySelector("#difficultPlayerSelect");
 var mainGame = document.querySelector("#mainGame");
+var playerOneWins = document.querySelector("#playerOneWins");
+var playerTwoWins = document.querySelector("#playerTwoWins");
 var regularGameCard = document.querySelector("#regularGameCard");
 var regularPlayerSelect = document.querySelector("#regularPlayerSelect");
 
@@ -61,6 +63,8 @@ function selectPlayerChoice(event, currentView) {
 function runGame() {
   computerChoice();
   currentGame.playMatch();
+  updateWins();
+  toggleChangeGameBtn();
   alert(currentGame.winner.name);
 }
 
@@ -86,6 +90,18 @@ function evaluateComputerChoice(randomChoice) {
     currentGame.setPlayerChoice(1, "Lizard");
   } else if (randomChoice === 5) {
     currentGame.setPlayerChoice(1, "Alien");
+  }
+}
+
+function toggleChangeGameBtn() {
+  changeGameBtn.classList.toggle("hidden");
+}
+
+function updateWins() {
+  if (currentGame.winner === currentGame.players[0]) {
+    playerOneWins.innerText = `Wins: ${currentGame.players[0].wins}`;
+  } else if (currentGame.winner === currentGame.players[1]) {
+    playerTwoWins.innerText = `Wins: ${currentGame.players[1].wins}`;
   }
 }
 
