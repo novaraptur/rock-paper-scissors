@@ -12,6 +12,7 @@ var playerOneWins = document.querySelector("#playerOneWins");
 var playerTwoWins = document.querySelector("#playerTwoWins");
 var regularGameCard = document.querySelector("#regularGameCard");
 var regularPlayerSelect = document.querySelector("#regularPlayerSelect");
+var winGameBoard = document.querySelector("#winGameBoard");
 
 // Event Listeners
 
@@ -34,6 +35,8 @@ regularPlayerSelect.addEventListener("click", function(event) {
 difficultPlayerSelect.addEventListener("click", function(event) {
   selectPlayerChoice(event, difficultPlayerSelect);
 });
+
+playAgainBtn.addEventListener("click", startNewGame);
 
 changeGameBtn.addEventListener("click", resetGame);
 
@@ -65,7 +68,14 @@ function runGame() {
   currentGame.playMatch();
   updateWins();
   toggleChangeGameBtn();
-  alert(currentGame.winner.name);
+  var gameDifficulty;
+  if (currentGame.gameType === "Regular") {
+    gameDifficulty = regularPlayerSelect;
+  } else {
+    gameDifficulty = difficultPlayerSelect;
+  }
+  switchView(winGameBoard, gameDifficulty);
+  console.log(currentGame.winner.name);
 }
 
 function computerChoice() {
@@ -105,6 +115,16 @@ function updateWins() {
   }
 }
 
-function resetGame() {
+function startNewGame() {
+  var gameDifficulty;
+  if (currentGame.gameType === "Regular") {
+    gameDifficulty = regularPlayerSelect;
+  } else {
+    gameDifficulty = difficultPlayerSelect;
+  }
+  switchView(gameDifficulty, winGameBoard);
+}
 
+function resetGame() {
+  switchView(chooseGameDifficulty, winGameBoard);
 }
