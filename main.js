@@ -72,6 +72,10 @@ function computerChoice() {
     optionNumber = 3;
   }
   var randomChoice = Math.floor(Math.random() * optionNumber) + 1;
+  evaluateComputerChoice(randomChoice);
+}
+
+function evaluateComputerChoice(randomChoice) {
   if (randomChoice === 1) {
     currentGame.setPlayerChoice(1, "Rock");
   } else if (randomChoice === 2) {

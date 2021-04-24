@@ -50,7 +50,7 @@ class Game {
   }
 
   decideWinner() {
-    if (this.winner === "Draw") {
+    if (this.winner.name === "Draw") {
       return "Draw";
     } else if (this.winner === this.players[0]) {
       return "Human";
