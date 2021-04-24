@@ -64,6 +64,11 @@ header {
   border-radius: 10px;
 }
 
+.win-game-board {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Player Sections */
 
 .player-section {
@@ -91,7 +96,12 @@ button:hover {
 /* Media Queries & Hidden States */
 
 @media only screen and (max-width: 750px) {
+  .game-section {
+    display: block;
+  }
+
   .game-option {
+    margin-top: 20px;
     min-width: 90px;
   }
 }

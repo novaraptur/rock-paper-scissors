@@ -82,7 +82,6 @@ function runGame() {
   var gameDifficulty = determineGameDifficulty();
   switchView(winGameBoard, gameDifficulty);
   displayWinMessage();
-  console.log(currentGame.winner.name);
 }
 
 function computerChoice() {
@@ -126,11 +125,11 @@ function displayWinMessage() {
   winMessage.innerHTML = ``;
   if (currentGame.winner.name === "Draw") {
     winMessage.insertAdjacentHTML("afterbegin", `
-    <p>It's a draw!</p>
+    <h3>It's a draw!</h3>
     `);
   } else {
     winMessage.insertAdjacentHTML("afterbegin", `
-    <p>${currentGame.winner.name} wins!</p>
+    <h3>${currentGame.winner.name} wins!</h3>
     `);
   }
 }
