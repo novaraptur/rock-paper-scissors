@@ -64,11 +64,6 @@ header {
   border-radius: 10px;
 }
 
-.win-game-board {
-  display: flex;
-  flex-direction: column;
-}
-
 /* Player Sections */
 
 .player-section {
