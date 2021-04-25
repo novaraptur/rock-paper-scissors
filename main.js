@@ -51,14 +51,19 @@ function switchView(viewTo, viewFrom) {
 function selectPlayerChoice(event, currentView) {
   if (event.target.id === "rock") {
     currentGame.setPlayerChoice(0, "Rock");
+    currentGame.players[0].choiceImage = "assets/happy-rocks.png";
   } else if (event.target.id === "scissors") {
     currentGame.setPlayerChoice(0, "Scissors");
+    currentGame.players[0].choiceImage = "assets/happy-scissors.png";
   } else if (event.target.id === "paper") {
     currentGame.setPlayerChoice(0, "Paper");
+    currentGame.players[0].choiceImage = "assets/happy-paper.png";
   } else if (event.target.id === "lizard") {
     currentGame.setPlayerChoice(0, "Lizard");
+    currentGame.players[0].choiceImage = "assets/iguana.png";
   } else if (event.target.id === "alien") {
     currentGame.setPlayerChoice(0, "Alien");
+    currentGame.players[0].choiceImage = "assets/ufo.png";
   }
   runGame();
   switchView(mainGame, currentView);
@@ -98,14 +103,19 @@ function computerChoice() {
 function evaluateComputerChoice(randomChoice) {
   if (randomChoice === 1) {
     currentGame.setPlayerChoice(1, "Rock");
+    currentGame.players[1].choiceImage = "assets/happy-rocks.png";
   } else if (randomChoice === 2) {
     currentGame.setPlayerChoice(1, "Scissors");
+    currentGame.players[1].choiceImage = "assets/happy-scissors.png";
   } else if (randomChoice === 3) {
     currentGame.setPlayerChoice(1, "Paper");
+    currentGame.players[1].choiceImage = "assets/happy-paper.png";
   } else if (randomChoice === 4) {
     currentGame.setPlayerChoice(1, "Lizard");
+    currentGame.players[1].choiceImage = "assets/iguana.png";
   } else if (randomChoice === 5) {
     currentGame.setPlayerChoice(1, "Alien");
+    currentGame.players[1].choiceImage = "assets/ufo.png";
   }
 }
 
@@ -126,19 +136,25 @@ function displayWinMessage() {
   if (currentGame.winner.name === "Draw") {
     winMessage.insertAdjacentHTML("afterbegin", `
     <h3>It's a draw!</h3>
+    <img src="${currentGame.players[0].choiceImage}">
+    <img src="${currentGame.players[1].choiceImage}">
     `);
   } else {
     winMessage.insertAdjacentHTML("afterbegin", `
     <h3>${currentGame.winner.name} wins!</h3>
+    <img src="${currentGame.players[0].choiceImage}">
+    <img src="${currentGame.players[1].choiceImage}">
     `);
   }
 }
 
 function startNewGame() {
+  toggleChangeGameBtn();
   var gameDifficulty = determineGameDifficulty();
   switchView(gameDifficulty, winGameBoard);
 }
 
 function resetGame() {
+  toggleChangeGameBtn();
   switchView(chooseGameDifficulty, winGameBoard);
 }
