@@ -5,6 +5,7 @@ class Player {
     this.token = player.token;
     this.wins = 0;
     this.choice = "";
+    this.choiceImage = "";
   }
 
   takeTurn(playerChoice) {
