@@ -20,18 +20,17 @@ var winMessage = document.querySelector("#winMessage");
 // Event Listeners
 
 window.addEventListener("load", function() {
-  currentGame.gameType = "Regular";
   currentGame.addPlayers();
   loadStorage();
 });
 
 regularGameCard.addEventListener("click", function() {
+  currentGame.gameType = "Regular";
   switchView(regularPlayerSelect, chooseGameDifficulty);
 });
 
 difficultGameCard.addEventListener("click", function() {
   currentGame.gameType = "Difficult";
-  currentGame.addPlayers();
   switchView(difficultPlayerSelect, chooseGameDifficulty);
 });
 
