@@ -8,7 +8,9 @@ var chooseGameDifficulty = document.querySelector("#chooseGameDifficulty");
 var difficultGameCard = document.querySelector("#difficultGameCard");
 var difficultPlayerSelect  = document.querySelector("#difficultPlayerSelect");
 var mainGame = document.querySelector("#mainGame");
+var playerOneSection = document.querySelector("#playerOneSection");
 var playerOneWins = document.querySelector("#playerOneWins");
+var playerTwoSection = document.querySelector("#playerTwoSection");
 var playerTwoWins = document.querySelector("#playerTwoWins");
 var regularGameCard = document.querySelector("#regularGameCard");
 var regularPlayerSelect = document.querySelector("#regularPlayerSelect");
@@ -17,9 +19,13 @@ var winMessage = document.querySelector("#winMessage");
 
 // Event Listeners
 
-regularGameCard.addEventListener("click", function() {
+window.addEventListener("load", function() {
   currentGame.gameType = "Regular";
   currentGame.addPlayers();
+  loadStorage();
+});
+
+regularGameCard.addEventListener("click", function() {
   switchView(regularPlayerSelect, chooseGameDifficulty);
 });
 
@@ -42,6 +48,19 @@ playAgainBtn.addEventListener("click", startNewGame);
 changeGameBtn.addEventListener("click", resetGame);
 
 // Functions
+
+function loadStorage() {
+  playerOneSection.insertAdjacentHTML("afterbegin", `
+  <h3>${currentGame.players[0].token}</h3>
+  `);
+  playerTwoSection.insertAdjacentHTML("afterbegin", `
+  <h3>${currentGame.players[1].token}</h3>
+  `);
+  currentGame.players[0].retrieveWinsFromStorage();
+  currentGame.players[1].retrieveWinsFromStorage();
+  playerOneWins.innerText = `Wins: ${currentGame.players[0].wins}`;
+  playerTwoWins.innerText = `Wins: ${currentGame.players[1].wins}`;
+}
 
 function switchView(viewTo, viewFrom) {
   viewFrom.classList.add("hidden");
@@ -87,6 +106,8 @@ function runGame() {
   var gameDifficulty = determineGameDifficulty();
   switchView(winGameBoard, gameDifficulty);
   displayWinMessage();
+  currentGame.players[0].saveWinsToStorage();
+  currentGame.players[1].saveWinsToStorage();
 }
 
 function computerChoice() {
@@ -135,7 +156,7 @@ function displayWinMessage() {
   winMessage.innerHTML = ``;
   if (currentGame.winner.name === "Draw") {
     winMessage.insertAdjacentHTML("afterbegin", `
-    <h3>It's a draw!</h3>
+    <h2>It's a draw!</h2>
     <img src="${currentGame.players[0].choiceImage}">
     <img src="${currentGame.players[1].choiceImage}">
     `);

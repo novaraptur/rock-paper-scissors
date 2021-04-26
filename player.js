@@ -3,7 +3,7 @@ class Player {
   constructor(player) {
     this.name = player.name;
     this.token = player.token;
-    this.wins = 0;
+    this.wins;
     this.choice = "";
     this.choiceImage = "";
   }
@@ -17,10 +17,10 @@ class Player {
   }
 
   saveWinsToStorage() {
-
+    localStorage.setItem(`${this.name}`, this.wins);
   }
 
   retrieveWinsFromStorage() {
-
+    this.wins = parseInt(localStorage.getItem(`${this.name}`));
   }
 }
