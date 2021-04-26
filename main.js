@@ -57,6 +57,10 @@ function loadStorage() {
   `);
   currentGame.players[0].retrieveWinsFromStorage();
   currentGame.players[1].retrieveWinsFromStorage();
+  if (isNaN(currentGame.players[0].wins)) {
+    currentGame.players[0].wins = 0;
+    currentGame.players[1].wins = 0;
+  }
   playerOneWins.innerText = `Wins: ${currentGame.players[0].wins}`;
   playerTwoWins.innerText = `Wins: ${currentGame.players[1].wins}`;
 }
