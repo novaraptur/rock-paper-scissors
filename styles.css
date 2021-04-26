@@ -89,6 +89,13 @@ button:hover {
 }
 
 .play-again-btn {
+  margin-right: 2%;
+  width: 25%;
+}
+
+.reset-wins-btn {
+  background-color: #FE78A9;
+  margin-left: 2%;
   width: 25%;
 }
 

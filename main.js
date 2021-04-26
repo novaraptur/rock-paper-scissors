@@ -14,6 +14,7 @@ var playerTwoSection = document.querySelector("#playerTwoSection");
 var playerTwoWins = document.querySelector("#playerTwoWins");
 var regularGameCard = document.querySelector("#regularGameCard");
 var regularPlayerSelect = document.querySelector("#regularPlayerSelect");
+var resetWinsBtn = document.querySelector("#resetWinsBtn");
 var winGameBoard = document.querySelector("#winGameBoard");
 var winMessage = document.querySelector("#winMessage");
 
@@ -45,6 +46,13 @@ difficultPlayerSelect.addEventListener("click", function(event) {
 playAgainBtn.addEventListener("click", startNewGame);
 
 changeGameBtn.addEventListener("click", resetGame);
+
+resetWinsBtn.addEventListener("click", function() {
+  localStorage.clear();
+  currentGame.clearGame();
+  resetGame();
+  location.reload();
+});
 
 // Functions
 
