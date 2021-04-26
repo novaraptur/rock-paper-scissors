@@ -7,9 +7,9 @@ class Game {
   }
 
   addPlayers() {
-    var human = new Player({name: "Human", token: ""});
+    var human = new Player({name: "Human", token: "👩"});
     this.players.push(human);
-    var computer = new Player({name: "Computer", token: ""});
+    var computer = new Player({name: "Computer", token: "💻"});
     this.players.push(computer);
   }
 
