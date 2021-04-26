@@ -14,24 +14,24 @@ var playerTwoSection = document.querySelector("#playerTwoSection");
 var playerTwoWins = document.querySelector("#playerTwoWins");
 var regularGameCard = document.querySelector("#regularGameCard");
 var regularPlayerSelect = document.querySelector("#regularPlayerSelect");
+var resetWinsBtn = document.querySelector("#resetWinsBtn");
 var winGameBoard = document.querySelector("#winGameBoard");
 var winMessage = document.querySelector("#winMessage");
 
 // Event Listeners
 
 window.addEventListener("load", function() {
-  currentGame.gameType = "Regular";
   currentGame.addPlayers();
   loadStorage();
 });
 
 regularGameCard.addEventListener("click", function() {
+  currentGame.gameType = "Regular";
   switchView(regularPlayerSelect, chooseGameDifficulty);
 });
 
 difficultGameCard.addEventListener("click", function() {
   currentGame.gameType = "Difficult";
-  currentGame.addPlayers();
   switchView(difficultPlayerSelect, chooseGameDifficulty);
 });
 
@@ -47,6 +47,13 @@ playAgainBtn.addEventListener("click", startNewGame);
 
 changeGameBtn.addEventListener("click", resetGame);
 
+resetWinsBtn.addEventListener("click", function() {
+  localStorage.clear();
+  currentGame.clearGame();
+  resetGame();
+  location.reload();
+});
+
 // Functions
 
 function loadStorage() {
@@ -58,6 +65,10 @@ function loadStorage() {
   `);
   currentGame.players[0].retrieveWinsFromStorage();
   currentGame.players[1].retrieveWinsFromStorage();
+  if (isNaN(currentGame.players[0].wins)) {
+    currentGame.players[0].wins = 0;
+    currentGame.players[1].wins = 0;
+  }
   playerOneWins.innerText = `Wins: ${currentGame.players[0].wins}`;
   playerTwoWins.innerText = `Wins: ${currentGame.players[1].wins}`;
 }
