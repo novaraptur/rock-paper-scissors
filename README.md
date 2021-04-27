@@ -4,6 +4,18 @@
 
 Rock, Paper, Scissors was our Mod 1 final project for Turing School-- the site would allow the user to play rock, paper, scissors against their computer. We were allowed creative control with our HTML / CSS, and aside from the requirements of having `Game` and `Player` classes for our data model, we were allowed freedom with how our Javascript was structured as well. Other requirements included having two different versions of the game possible (a regular and difficult version, the difficult version having more options), having player wins persist across page load using `localStorage`, etc. Overall, the emphasis was on having good, clean, Javascript, with full functionality and no bugs. I chose to add an extra feature, the Reset Wins button, which would allow the user to reset their `localStorage` and wipe all wins.
 
+![Project screenshot](https://gist.github.com/novaraptur/d931349d334bb64adf08a36883723096#gistcomment-3722056)
+
+A screenshot of the opening screen, with two cards for "Regular" and "Difficult" modes, and player info on each side.
+
+![Project screenshot](https://gist.github.com/novaraptur/d931349d334bb64adf08a36883723096#gistcomment-3722059)
+
+A screenshot of the "Difficult" player options.
+
+![Project screenshot](https://gist.github.com/novaraptur/d931349d334bb64adf08a36883723096#gistcomment-3722060)
+
+A screenshot of the win page, with "Human wins!" and the player & computer choices displayed, as well as buttons to change game mode, play again, and reset wins.
+
 ## Learning Goals
 
 1. Solidify and demonstrate your understanding of:
@@ -11,8 +23,7 @@ Rock, Paper, Scissors was our Mod 1 final project for Turing School-- the site w
   2. localStorage to persist data
   3. event delegation to handle similar event listeners
 2. Understand the difference between the data model and how the data is displayed on the DOM
-3. Iterate through/filter DOM elements using for loops
-4. Use your problem solving process to break down large problems, solve things step by step, and trust yourself to not rely on an outside “answer” to a logical challenge
+3. Use your problem solving process to break down large problems, solve things step by step, and trust yourself to not rely on an outside “answer” to a logical challenge
 
 ## Languages & Technologies
 
