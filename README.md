@@ -40,6 +40,9 @@ This workflow is not required, but will help you meet the overall requirements o
 ## Future Update Ideas
 
 [] Have one player choice section with all 5 options, and only unhide first 3 for regular, rather than having two-- avoids having multiple items with identical ids
+
 [] Refactor loadStorage function to utilize helper functions and/or put functionality of loadStorage in class method
+
 [] Refactor project to use jQuery to cut down on querySelectors
+
 [] Possible-- add page with log of all wins shown as cards that include which player selected which option, the total number of wins for each, etc., that are also erased when wins are cleared
